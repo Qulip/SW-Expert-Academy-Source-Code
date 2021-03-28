@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Arrays;
 import java.util.Scanner;
 
 
@@ -14,10 +14,11 @@ public class Solution {
             String a = sc.next();
             char[] Letters = a.toCharArray();
             ArrayList<Character> last = new ArrayList<>();
+            Arrays.sort(Letters);
             for(int x=0; x<Letters.length; x++)
             {
-                if(x==Letters.length-1)
-                {
+                if(x== Letters.length-1){
+                    last.add(Letters[x]);
                     break;
                 }
                 if(Letters[x]==Letters[x+1])
@@ -29,7 +30,6 @@ public class Solution {
                     last.add(Letters[x]);
                 }
             }
-            Collections.sort(last);
             System.out.print("#"+tc+" ");
             if(last.size()==0)
             {
