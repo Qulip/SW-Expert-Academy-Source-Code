@@ -18,8 +18,8 @@ public class Solution {
                 }
             }
             int nums = 0;
-            int money = 0;
-            int profit = 0;
+            long money = 0;
+            long profit = 0;
             int i = n-1;
             while(i>0){
                 //System.out.println("1st "+i);
@@ -42,7 +42,7 @@ public class Solution {
                         nums++;
                         //System.out.println(money+" "+prices[j]);
                     }
-                    profit = profit + (iprice*nums) - money;
+                    profit = profit + ((long) iprice *nums) - money;
                 }
                 nums = 0;
                 money = 0;
