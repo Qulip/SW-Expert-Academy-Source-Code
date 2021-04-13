@@ -17,10 +17,12 @@ public class Solution {
                     num = num+people[i]-'0';
                 }else{
                     if(num<i+1){
+                        System.out.println(i);
                         rst++;
+                        num++;
                     }
                 }
-                System.out.println(num);
+                //System.out.println(num);
             }
             sb.append("#"+tc+" "+rst+"\n");
             System.out.println();
