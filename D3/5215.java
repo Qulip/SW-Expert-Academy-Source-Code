@@ -26,18 +26,14 @@ public class Solution {
     }
     static void dfs(int now_kcal,int now_grade, int depth){
         for(int i = depth; i<kcal.length; i++){
-            int temp = now_kcal + kcal[depth];
-            if(temp >= l){
-                if(temp == l){
-                    if(rst<now_grade+grade[i]){
-                        System.out.println(now_kcal+" "+now_grade+" "+rst+" "+(now_grade+grade[i]));
-                        rst = now_grade+grade[i];
-                    }
+            int temp = now_kcal + kcal[i];
+            if(temp < l){
+                if(rst<now_grade+grade[i]){
+                    rst = now_grade+grade[i];
                 }
-            }else {
-                dfs(temp,now_grade+grade[i], depth + 1);
+                dfs(temp,now_grade+grade[i], i+ 1);
             }
-            dfs(now_kcal,now_grade,depth+1);
+            dfs(now_kcal,now_grade,i+1);
         }
     }
 }
