@@ -19,22 +19,22 @@ public class Solution {
                 grade[i] = Integer.parseInt(st.nextToken());
                 kcal[i] = Integer.parseInt(st.nextToken());
             }
+            rst = 0;
             dfs(0,0, 0);
             sb.append("#"+tc+" "+rst+"\n");
         }
         System.out.println(sb);
     }
     static void dfs(int now_kcal,int now_grade, int depth){
-        for(int i = depth; i<kcal.length; i++){
-            int temp = now_kcal + kcal[i];
-            if(temp < l){
-                if(rst<now_grade+grade[i]){
-                    rst = now_grade+grade[i];
-                }
-                dfs(temp,now_grade+grade[i], i+ 1);
-            }
-            dfs(now_kcal,now_grade,i+1);
+        if(now_kcal > l){
+            return;
         }
+        if(depth == n){
+            rst = Math.max(rst, now_grade);
+            return;
+        }
+        dfs(now_kcal+kcal[depth], now_grade+grade[depth], depth+1);
+        dfs(now_kcal, now_grade, depth+1);
     }
 }
 /*
