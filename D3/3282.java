@@ -22,7 +22,8 @@ public class Solution {
             }
             for(int i=0; i<n; i++){
                 for(int j=k; j>=v[i]; j--){
-                    best[j] = Math.max(best[j], c[i]+best[j-v[i]]);
+                    best[j] = (best[j]<c[i]+best[j-v[i]] ? c[i]+best[j-v[i]]:best[j]);
+                    //best[j] = Math.max(best[j], c[i]+best[j-v[i]]);
                 }
             }
             sb.append("#"+tc+" "+best[k]+"\n");
