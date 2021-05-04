@@ -1,3 +1,5 @@
+package swea6853;
+
 import java.io.*;
 import java.util.StringTokenizer;
 
@@ -20,14 +22,23 @@ public class Solution {
                 st = new StringTokenizer(br.readLine());
                 int chk_x = Integer.parseInt(st.nextToken());
                 int chk_y = Integer.parseInt(st.nextToken());
-                if((chk_x==x[0]||chk_x==x[1])&&(chk_y==y[0]||chk_y==y[1])){
+                /*
+                if((chk_x==x[0]||chk_x==x[1])&&(chk_y>=y[0]&&chk_y<=y[1])){
                     rst[1]++;
-                    continue;
-                }
-                if(chk_x>x[0]&&chk_x<x[1]&&chk_y>y[0]&&chk_y<y[1]){
+                }else if((chk_x>=x[0]||chk_x<=x[1])&&(chk_y==y[0]||chk_y==y[1])){
+                    rst[1]++;
+                } else if(chk_x>x[0]&&chk_x<x[1]&&chk_y>y[0]&&chk_y<y[1]){
                     rst[0]++;
                 }else {
                     rst[2]++;
+                }
+                 */
+                if(chk_x>x[0]&&chk_x<x[1]&&chk_y>y[0]&&chk_y<y[1]){
+                    rst[0]++;
+                } else if(chk_x<x[0]||chk_x>x[1]||chk_y<y[0]||chk_y>y[1]){
+                    rst[2]++;
+                } else {
+                    rst[1]++;
                 }
             }
             sb.append("#"+tc+" "+rst[0]+" "+rst[1]+" "+rst[2]+"\n");
